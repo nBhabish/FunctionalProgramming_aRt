@@ -1,48 +1,11 @@
-#Ctrl shift R for labelling code chunk 
+#Ctrl shift R for labeling code chunk 
 # Setup -------------------------------------------------------------------
 
 library(tidyverse)
-set.seed(1)
+library(here)
+source(file = here("~/Desktop/Repositories/FunctionProgramming_aRt/helpers.R"))
 
 
-# Helper Function ---------------------------------------------------------
-
-
-radians <- function(degree) {
-  prop <- (degree / 360)
-  rads <- prop *  2 * pi
-  return(rads)
-}
-
-
-adjust_scale <- function(scale) {
-  all_scales <- c(.8, .9, .95)
-  new_scales <-
-    scale * sample(x = all_scales,
-                   size = length(scale),
-                   replace = TRUE)
-  return(new_scales)
-}
-
-adjust_angle <- function(angle){
-  all_angles <- c(-10, -5, 0, 5, 15, 20, 25)
-  new_angles <-
-    angle + sample(x = all_angles,
-                   size = length(angle),
-                   replace = TRUE)
-  return(new_angles)
-  
-}
-
-adjust_x <- function(old_x, angle, scale){
-  new_x <- old_x + scale * cos(radians(angle))
-  return(new_x)
-}
-
-adjust_y <- function(old_y, angle, scale){
-  new_y <- old_y + scale * sin(radians(angle))
-  return(new_y)
-}
 # Workers --------------------------------------------------------------------
 
 
